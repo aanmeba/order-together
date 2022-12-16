@@ -1,7 +1,7 @@
-import { Button } from "@material-ui/core";
+import MainButton from "../atoms/main_button";
 
 const ViewOrder = () => {
-  return <Button>View the order sheet</Button>;
+  return <MainButton text="🔍 View the order sheet" />;
 };
 
 export default ViewOrder;

@@ -1,7 +1,7 @@
-import { Button } from "@material-ui/core";
+import MainButton from "../atoms/main_button";
 
 const AddOrder = () => {
-  return <Button>Create an order sheet</Button>;
+  return <MainButton text="📝 Create an order sheet" />;
 };
 
 export default AddOrder;

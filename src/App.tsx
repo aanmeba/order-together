@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Typography } from "@material-ui/core";
+import { Stack } from "@mui/material";
+import React from "react";
+import "./app.css";
+import AddOrder from "./components/add_order";
+import ViewOrder from "./components/view_order";
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack direction="column" justifyContent="center" alignItems="center">
+      <Typography variant="h2">Order Together</Typography>
+      <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+        <Grid item>
+          <AddOrder />
+        </Grid>
+        <Grid item>
+          <ViewOrder />
+        </Grid>
+      </Grid>
+    </Stack>
   );
 }
 

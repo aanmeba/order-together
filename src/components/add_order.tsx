@@ -1,7 +1,10 @@
-import { Button } from "@material-ui/core";
-
 const AddOrder = () => {
-  return <Button>Create an order sheet</Button>;
+  console.log("render AddOrder...");
+  return (
+    <>
+      <h1>Add Order</h1>
+    </>
+  );
 };
 
 export default AddOrder;

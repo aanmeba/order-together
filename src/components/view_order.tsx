@@ -1,7 +1,10 @@
-import { Button } from "@material-ui/core";
-
 const ViewOrder = () => {
-  return <Button>View the order sheet</Button>;
+  console.log("render ViewOrder...");
+  return (
+    <>
+      <h1>View Order</h1>
+    </>
+  );
 };
 
 export default ViewOrder;

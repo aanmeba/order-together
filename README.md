@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Order Together App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app simply helps you order a list of menus in a group.
+
+In weekends I run with my running crew and we enjoy having a coffee after that. But the thing is that we are quite a big group over 15 and we are having a hard time to order coffee (seriously). If we order individually, it takes so long to order and pay their menus as well as for everyone to have their coffees. If we order together, someone has to take the responsibility to get the menus, check on the number of people and drinks, pay and make sure no one missing their coffees.
+
+So, this app is for those of us who want to order together.
+
+- Add, edit, delete your or your friend's menus with their names or nicknames
+
+## Objectives
+
+- Test Driven Development
+
+## Tech Stack
+
+- TypeScript with React
+- Firebase
 
 ## Available Scripts
 

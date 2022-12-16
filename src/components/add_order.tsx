@@ -1,7 +1,10 @@
-import MainButton from "../atoms/main_button";
-
 const AddOrder = () => {
-  return <MainButton text="📝 Create an order sheet" />;
+  console.log("render AddOrder...");
+  return (
+    <>
+      <h1>Add Order</h1>
+    </>
+  );
 };
 
 export default AddOrder;

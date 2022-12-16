@@ -1,7 +1,10 @@
-import MainButton from "../atoms/main_button";
-
 const ViewOrder = () => {
-  return <MainButton text="🔍 View the order sheet" />;
+  console.log("render ViewOrder...");
+  return (
+    <>
+      <h1>View Order</h1>
+    </>
+  );
 };
 
 export default ViewOrder;

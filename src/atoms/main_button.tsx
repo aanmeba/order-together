@@ -1,18 +1,17 @@
 import { Button } from "@material-ui/core";
-import AddOrder from "../components/add_order";
-import ViewOrder from "../components/view_order";
+import { useNavigate } from "react-router-dom";
 
 type MainButtonType = {
   text: string;
   origin: Origin;
 };
 
-type Origin = "create" | "view";
+type Origin = "new" | "join";
 
 const MainButton = (props: MainButtonType): JSX.Element => {
+  const navigate = useNavigate();
   const handleClick = (origin: Origin) => {
-    console.log(origin, "--- handleClick");
-    return origin === "create" ? <AddOrder /> : <ViewOrder />;
+    return navigate(`/${origin}`);
   };
 
   return (

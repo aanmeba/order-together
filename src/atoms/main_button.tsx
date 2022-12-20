@@ -15,7 +15,9 @@ const MainButton = (props: MainButtonType): JSX.Element => {
   };
 
   return (
-    <Button onClick={() => handleClick(props?.origin)}>{props?.text}</Button>
+    <Button data-testid="main-btn" onClick={() => handleClick(props?.origin)}>
+      {props?.text}
+    </Button>
   );
 };
 

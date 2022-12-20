@@ -1,10 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import "./app.css";
 import Header from "./components/header";
-import Home from "./components/home";
-import New from "./components/new";
-import Join from "./components/join";
-// import ErrorPage from "./components/error-page";
+import Home from "./pages/home";
+import Login from "./pages/login";
+// import ErrorPage from "./pages/error-page";
 
 function App(): JSX.Element {
   return (
@@ -12,8 +11,8 @@ function App(): JSX.Element {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="new" element={<New />} />
-        <Route path="join" element={<Join />} />
+        <Route path="new" element={<Login locPath="new" />} />
+        <Route path="join" element={<Login locPath="join" />} />
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </>

@@ -4,6 +4,7 @@ import Header from "./components/header";
 import Home from "./pages/home";
 import Login from "./pages/login";
 // import ErrorPage from "./pages/error-page";
+import Order from "./pages/order";
 
 function App(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function App(): JSX.Element {
         <Route path="/" element={<Home />} />
         <Route path="new" element={<Login locPath="new" />} />
         <Route path="join" element={<Login locPath="join" />} />
+        <Route path="order" element={<Order />} />
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </>

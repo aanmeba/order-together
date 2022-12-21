@@ -1,9 +1,9 @@
 import { FormControl, FormHelperText, TextField } from "@mui/material";
-import { useState } from "react";
 
 export type TextInputType = {
   label: string;
   id?: string;
+  name?: string;
   required?: boolean;
   helper?: string;
   type?: string;
@@ -12,10 +12,8 @@ export type TextInputType = {
 };
 
 const TextInput = (props: TextInputType) => {
-  // const [inputValue, setInputValue] = useState<string>("");
-
   return (
-    <FormControl>
+    <>
       <TextField
         label={props.label}
         id={props.id}
@@ -25,8 +23,12 @@ const TextInput = (props: TextInputType) => {
         value={props.value}
         onChange={props.onChange}
       />
-      <FormHelperText id="helper">{props.helper}</FormHelperText>
-    </FormControl>
+      {props.helper ? (
+        <FormHelperText id="helper">{props.helper}</FormHelperText>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 

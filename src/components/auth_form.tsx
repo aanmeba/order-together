@@ -30,6 +30,7 @@ const AuthForm = () => {
     <Stack direction="column" spacing={4} width="30rem">
       <TextInput
         label="Group Name"
+        aria-label="name"
         id="name"
         helper="This group name is used for login"
         required={true}
@@ -38,6 +39,7 @@ const AuthForm = () => {
       />
       <TextInput
         label="Group Password"
+        aria-label="password"
         id="password"
         helper="This group password is used for login"
         required={true}

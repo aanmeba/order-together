@@ -2,7 +2,11 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import AuthForm from "../auth_form";
 
 describe("AuthForm", () => {
-  const setup = () => render(<AuthForm />);
+  const signUp = jest.fn();
+  const logIn = jest.fn();
+  const logOut = jest.fn();
+  const setup = () =>
+    render(<AuthForm signUp={signUp} logIn={logIn} logOut={logOut} />);
 
   it("renders input fields", () => {
     setup();

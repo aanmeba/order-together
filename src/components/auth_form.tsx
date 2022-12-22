@@ -2,13 +2,14 @@ import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useState } from "react";
 import TextInput from "../atoms/text_input";
+import { UserAuthInterface } from "../service/auth_service";
 
-type LoginDataType = {
+export type LoginDataType = {
   name: string;
   password: string;
 };
 
-const AuthForm = () => {
+const AuthForm = ({ signUp, logIn }: UserAuthInterface) => {
   const initialData = {
     name: "",
     password: "",
@@ -19,6 +20,8 @@ const AuthForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(loginData);
+    signUp && signUp(loginData.name, loginData.password);
+    logIn && logIn(loginData.name, loginData.password);
   };
 
   const handleChange = (e: React.ChangeEvent) => {

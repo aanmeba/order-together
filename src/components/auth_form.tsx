@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TextInput from "../atoms/text_input";
 import { UserAuthInterface } from "../service/auth_service";
 
@@ -9,19 +10,34 @@ export type LoginDataType = {
   password: string;
 };
 
-const AuthForm = ({ signUp, logIn }: UserAuthInterface) => {
+const AuthForm = (props: { userAuth: UserAuthInterface }) => {
   const initialData = {
     name: "",
     password: "",
   };
+  const navigate = useNavigate();
+  const goToOrder = (userId: string) => {
+    console.log(userId, "-- userId --- goToOrder is triggered!!!!");
+    navigate("/order", { state: { id: userId } });
+  };
 
   const [loginData, setLoginData] = useState<LoginDataType>(initialData);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(loginData);
-    signUp && signUp(loginData.name, loginData.password);
-    logIn && logIn(loginData.name, loginData.password);
+
+    // TODO: add signup functionality
+    try {
+      const signedUser = await props.userAuth.logIn(
+        loginData.name,
+        loginData.password
+      );
+      console.log(signedUser, "--- signedUser");
+      return goToOrder(signedUser.uid);
+    } catch (error) {
+      console.log(error, "something went wrong...");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent) => {

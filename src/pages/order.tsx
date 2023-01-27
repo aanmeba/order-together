@@ -1,8 +1,12 @@
+import { useLocation } from "react-router-dom";
 import { OrderInput } from "../components/order-input";
 import { OrderList } from "../components/order-list";
 import { OrderPreview } from "../components/order-preview";
 
 const Order = () => {
+  const location = useLocation();
+  console.log(location, "--- Order page - navigate, location");
+
   return (
     <>
       <div>

@@ -2,43 +2,35 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  UserInfo,
+  User,
 } from "firebase/auth";
+
 import { firebaseAuth } from "./firebase";
 
 export interface UserAuthInterface {
-  signUp?(a: string, b: string): void;
-  logIn?(a: string, b: string): void;
-  logOut?(a: string, b: string): void;
+  signUp(a: string, b: string): Promise<UserInfo & User>;
+  logIn(a: string, b: string): Promise<UserInfo & User>;
+  logOut(a: string, b: string): void;
 }
 
 export class UserAuth implements UserAuthInterface {
-  signUp(email: string, password: string) {
-    createUserWithEmailAndPassword(firebaseAuth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user, "--- signup user");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+  async signUp(email: string, password: string): Promise<UserInfo & User> {
+    const userCredential = await createUserWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password
+    );
+    return await userCredential.user;
   }
 
-  logIn(email: string, password: string) {
-    signInWithEmailAndPassword(firebaseAuth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user, "--- login user");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+  async logIn(email: string, password: string): Promise<UserInfo & User> {
+    const userCredential = signInWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password
+    );
+    return (await userCredential).user;
   }
 
   logOut() {
@@ -52,4 +44,10 @@ export class UserAuth implements UserAuthInterface {
         console.log(error.code, error.message);
       });
   }
+
+  // onAuthChange(onUserChanged) {
+  //   firebaseAuth.onAuthStateChanged((user) => {
+  //     onUserChanged(user);
+  //   });
+  // }
 }

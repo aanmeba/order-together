@@ -8,14 +8,7 @@ import Order from "./pages/order";
 import { UserAuth } from "./service/auth_service";
 
 function App(): JSX.Element {
-  // const userAuthTestData = {
-  //   signUp: (x: string, y: string) => console.log("signup -!"),
-  //   logIn: (x: string, y: string) => console.log("login"),
-  //   logOut: () => console.log("logOUt"),
-  // };
-
   const userAuth = new UserAuth();
-  // console.log(userAuth.signUp("test", "1234"));
 
   return (
     <>
